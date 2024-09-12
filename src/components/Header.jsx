@@ -1,9 +1,10 @@
+import "./Header.css";
 const Header = ({ leftChild, title, rightChild }) => {
   return (
-    <header>
-      {leftChild}
-      <h1>{title}</h1>
-      {rightChild}
+    <header className="Header">
+      <div className="header_left">{leftChild}</div>
+      <div className="header_center">{title}</div>
+      <div className="header_right">{rightChild}</div>
     </header>
   );
 };
