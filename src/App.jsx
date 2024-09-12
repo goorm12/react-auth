@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Auth from "./pages/Auth";
-import Notfound from "./pages/Notfound";
+import SignUp from "./pages/SignUp";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/*" element={<Notfound />} />
+        <Route path="/auth" element={<SignUp />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </>
   );
