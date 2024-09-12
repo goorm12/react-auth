@@ -1,5 +1,4 @@
-.Input input {
-  max-width: 300px;
-  width: 100%;
+input {
   padding: 10px 5px;
+  margin-top: 10px;
 }
