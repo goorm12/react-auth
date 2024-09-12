@@ -5,7 +5,10 @@ import Header from "../components/Header";
 const SignUp = () => {
   return (
     <div>
-      <Header title={"회원가입"} leftChild={<Button text={"X"} />} />
+      <Header
+        title={"회원가입"}
+        leftChild={<Button text={"X"} bgc={"transparent"} />}
+      />
       <SignUpInput />
     </div>
   );

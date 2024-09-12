@@ -34,10 +34,10 @@ const SignUpInput = () => {
           type={"tel"}
           placeholder={"전화번호를 입력해주세요"}
         />
-        <Button text={"인증번호 받기"} />
+        <Button text={"인증번호 받기"} bgc={"blue"} />
       </div>
       <div>
-        <Button text={"가입하기"} />
+        <Button text={"가입하기"} bgc={"blue"} />
       </div>
     </section>
   );
