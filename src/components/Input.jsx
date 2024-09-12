@@ -1,12 +1,15 @@
 import "./Input.css";
-const Input = ({ title, type, placeholder }) => {
+const Input = ({ title, type, placeholder, labelId }) => {
   return (
-    <div className="Input">
-      <label>
-        {title}
-        <input type={type} placeholder={placeholder} />
-      </label>
-    </div>
+    <>
+      <label for={labelId}>{title}</label>
+      <input
+        type={type}
+        placeholder={placeholder}
+        id={labelId}
+        name="{labelId}"
+      />
+    </>
   );
 };
 
