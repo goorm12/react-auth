@@ -1,9 +1,19 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Auth from "./pages/Auth";
+import Notfound from "./pages/Notfound";
 
 function App() {
   return (
     <>
-      <div>하이</div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/*" element={<Notfound />} />
+      </Routes>
     </>
   );
 }
