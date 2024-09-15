@@ -1,4 +1,4 @@
-import "./SignUpInput.css";
+import "./SignupContent.css";
 import Button from "./Button";
 import Input from "./input";
 
