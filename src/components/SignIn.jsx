@@ -6,7 +6,6 @@ import Button from "./Button";
 const SignIn = () => {
   return (
     <div>
-      <Header title={"로그인"} />
       <div className="SignIn">
         <div className="sign-in__id">
           <Input
