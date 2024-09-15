@@ -1,0 +1,68 @@
+.SignUpInput {
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.SignUpInput .id_input_wrapper,
+.SignUpInput .tel_input_wrapper {
+  display: flex;
+  align-items: end;
+  flex: 1;
+  gap: 10px;
+}
+
+.SignUpInput .id_input_wrapper .input,
+.SignUpInput .tel_input_wrapper .tel_input {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.SignUpInput .pw_input_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.SignUpInput .pw_input_wrapper .pw_first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.SignUpInput .pw_input_wrapper .pw_second-child > input {
+  width: 100%;
+}
+
+.SignUpInput .email_input_wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.SignUpInput .email_input {
+  flex: 1;
+}
+
+.SignUpInput .email_input input {
+  width: 100%;
+  padding: 8px;
+}
+
+.SignUpInput span {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.SignUpInput .select select {
+  padding: 7.5px;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 5px;
+}
+
+.SignUpInput .submit_button button {
+  width: 100%;
+}
