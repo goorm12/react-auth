@@ -31,7 +31,9 @@ const SignUpInput = () => {
         fullEmail,
         password
       );
+
       const user = userCredential.user;
+
       if (user) {
         nav("/login", { replace: true });
       }
