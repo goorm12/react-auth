@@ -1,18 +1,32 @@
 import "./SignupContent.css";
 import Button from "./Button";
-import Input from "./input";
+import { useState } from "react";
 
 const SignUpInput = () => {
+  const [id, setId] = useState("");
+  const [emailLocalPart, setemailLocalPart] = useState("");
+  const [emailDomainPart, setEmailDomainPart] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const onCreate = (e) => {
+    e.preventDefault();
+    const fullEmail = `${emailLocalPart}@${emailDomainPart}`;
+    console.log(id);
+    console.log(password);
+    console.log(fullEmail);
+  };
   return (
     <section className="SignUpInput">
-      <form>
+      <form onSubmit={onCreate}>
         <div className="id_input_wrapper">
           <div className="input">
-            <Input
-              title={"아이디"}
+            <label htmlFor="input_id">아이디</label>
+            <input
               type={"text"}
               placeholder={"아이디를 입력해주세요"}
-              labelId={"input_id"}
+              id={"input_id"}
+              onChange={(e) => setId(e.target.value)}
             />
           </div>
           <div>
@@ -22,48 +36,46 @@ const SignUpInput = () => {
 
         <div className="pw_input_wrapper">
           <div className="pw_first-child">
-            <Input
-              title={"비밀번호"}
+            <label htmlFor="input_pw_1">비밀번호</label>
+            <input
               type={"password"}
               placeholder={"비밀번호를 입력해주세요"}
-              labelId={"input_pw_1"}
+              id={"input_pw_1"}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
           <div className="pw_second-child">
-            <Input
-              type={"password"}
-              placeholder={"비밀번호를 입력해주세요"}
-              labelId={"input_pw_2"}
-            />
+            <input type={"password"} placeholder={"비밀번호를 입력해주세요"} />
           </div>
         </div>
         <div className="email_input_wrapper">
           <div className="email_input">
-            <Input
-              title={"이메일"}
-              type={"email"}
+            <label htmlFor="input_email">이메일</label>
+            <input
+              type={"text"}
               placeholder={"이메일을 입력해주세요"}
-              labelId={"input_email"}
+              id={"input_email"}
+              onChange={(e) => setemailLocalPart(e.target.value)}
             />
           </div>
           <span>@</span>
           <div className="select">
-            <select>
+            <select onChange={(e) => setEmailDomainPart(e.target.value)}>
               <option value=""></option>
-              <option value="naver">naver.com</option>
-              <option value="google">google.com</option>
-              <option value="daum">daum.ner</option>
+              <option value="naver.com">naver.com</option>
+              <option value="google.com">google.com</option>
+              <option value="daum.net">daum.ner</option>
             </select>
           </div>
         </div>
         <div className="tel_input_wrapper">
           <div className="tel_input">
-            <Input
-              title={"전화번호"}
+            <label htmlFor="input_tel">전화번호</label>
+            <input
               type={"tel"}
               placeholder={"전화번호를 입력해주세요"}
-              labelId={"input_tel"}
+              id={"input_tel"}
             />
           </div>
           <div className="tel_btn">
