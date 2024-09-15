@@ -18,7 +18,6 @@ input {
   gap: 30px;
 }
 
-.SignUpInput .id_input_wrapper,
 .SignUpInput .tel_input_wrapper {
   display: flex;
   align-items: end;
@@ -26,7 +25,6 @@ input {
   gap: 10px;
 }
 
-.SignUpInput .id_input_wrapper .input,
 .SignUpInput .tel_input_wrapper .tel_input {
   display: flex;
   flex-direction: column;
