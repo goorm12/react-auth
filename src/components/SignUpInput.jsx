@@ -44,6 +44,7 @@ const SignUpInput = () => {
               title={"이메일"}
               type={"email"}
               placeholder={"이메일을 입력해주세요"}
+              labelId={"input_email"}
             />
           </div>
           <span>@</span>
