@@ -1,38 +1,73 @@
 import "./SignupContent.css";
 import Button from "./Button";
 import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { authService } from "../firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const SignUpInput = () => {
-  const [id, setId] = useState("");
-  const [emailLocalPart, setemailLocalPart] = useState("");
+  const [emailLocalPart, setEmailLocalPart] = useState("");
   const [emailDomainPart, setEmailDomainPart] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const nav = useNavigate();
 
-  const onCreate = (e) => {
+  const onCreate = async (e) => {
     e.preventDefault();
     const fullEmail = `${emailLocalPart}@${emailDomainPart}`;
-    console.log(id);
-    console.log(password);
-    console.log(fullEmail);
+
+    if (!emailLocalPart || !emailDomainPart) {
+      setError("이메일이 잘못되었습니다.");
+      return;
+    } else if (!password || password !== confirmPassword) {
+      setError("비밀번호가 잘못되었거나, 비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        authService,
+        fullEmail,
+        password
+      );
+      const user = userCredential.user;
+      if (user) {
+        nav("/login", { replace: true });
+      }
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Error creating user:", errorCode, errorMessage);
+    }
   };
+
   return (
     <section className="SignUpInput">
       <form onSubmit={onCreate}>
-        <div className="id_input_wrapper">
-          <div className="input">
-            <label htmlFor="input_id">아이디</label>
+        <div className="email_input_wrapper">
+          <div className="email_input">
+            <label htmlFor="input_email">이메일</label>
             <input
               type={"text"}
-              placeholder={"아이디를 입력해주세요"}
-              id={"input_id"}
-              onChange={(e) => setId(e.target.value)}
+              placeholder={"이메일을 입력해주세요"}
+              id={"input_email"}
+              onChange={(e) => setEmailLocalPart(e.target.value)}
               autoComplete="off"
               required
             />
           </div>
-          <div>
-            <Button text={"중복확인"} bgc={"blue"} />
+          <span>@</span>
+          <div className="select">
+            <select
+              onChange={(e) => setEmailDomainPart(e.target.value)}
+              required
+            >
+              <option value=""></option>
+              <option value="naver.com">naver.com</option>
+              <option value="google.com">google.com</option>
+              <option value="daum.net">daum.net</option>
+            </select>
           </div>
         </div>
 
@@ -53,34 +88,10 @@ const SignUpInput = () => {
             <input
               type={"password"}
               placeholder={"비밀번호를 입력해주세요"}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               autoComplete="off"
               required
             />
-          </div>
-        </div>
-        <div className="email_input_wrapper">
-          <div className="email_input">
-            <label htmlFor="input_email">이메일</label>
-            <input
-              type={"text"}
-              placeholder={"이메일을 입력해주세요"}
-              id={"input_email"}
-              onChange={(e) => setemailLocalPart(e.target.value)}
-              autoComplete="off"
-              required
-            />
-          </div>
-          <span>@</span>
-          <div className="select">
-            <select
-              onChange={(e) => setEmailDomainPart(e.target.value)}
-              required
-            >
-              <option value=""></option>
-              <option value="naver.com">naver.com</option>
-              <option value="google.com">google.com</option>
-              <option value="daum.net">daum.ner</option>
-            </select>
           </div>
         </div>
         <div className="tel_input_wrapper">
@@ -100,8 +111,10 @@ const SignUpInput = () => {
         </div>
 
         <div className="submit_button">
-          <Button text={"가입하기"} bgc={"blue"} />
+          <Button text={"가입하기"} bgc={"blue"} type={"submit"} />
         </div>
+
+        {error && <div className="error-message">{error}</div>}
       </form>
     </section>
   );
