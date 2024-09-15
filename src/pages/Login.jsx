@@ -7,7 +7,7 @@ const Login = () => {
   const nav = useNavigate();
 
   const handleClickHome = () => {
-    nav("/", { replace: true });
+    nav("/home", { replace: true });
   };
 
   return (
