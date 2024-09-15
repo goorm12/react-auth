@@ -25,7 +25,7 @@ const SignUpInput = () => {
             title={"비밀번호"}
             type={"password"}
             placeholder={"비밀번호를 입력해주세요"}
-            labelId={"input_pw"}
+            labelId={"input_pw_1"}
           />
         </div>
 
@@ -33,7 +33,7 @@ const SignUpInput = () => {
           <Input
             type={"password"}
             placeholder={"비밀번호를 입력해주세요"}
-            labelId={"input_pw"}
+            labelId={"input_pw_2"}
           />
         </div>
       </div>
