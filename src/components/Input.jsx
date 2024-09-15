@@ -2,7 +2,7 @@ import "./Input.css";
 const Input = ({ title, type, placeholder, labelId }) => {
   return (
     <>
-      <label for={labelId}>{title}</label>
+      <label htmlFor={labelId}>{title}</label>
       <input
         type={type}
         placeholder={placeholder}
