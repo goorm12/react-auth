@@ -27,6 +27,8 @@ const SignUpInput = () => {
               placeholder={"아이디를 입력해주세요"}
               id={"input_id"}
               onChange={(e) => setId(e.target.value)}
+              autoComplete="off"
+              required
             />
           </div>
           <div>
@@ -42,11 +44,18 @@ const SignUpInput = () => {
               placeholder={"비밀번호를 입력해주세요"}
               id={"input_pw_1"}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="off"
+              required
             />
           </div>
 
           <div className="pw_second-child">
-            <input type={"password"} placeholder={"비밀번호를 입력해주세요"} />
+            <input
+              type={"password"}
+              placeholder={"비밀번호를 입력해주세요"}
+              autoComplete="off"
+              required
+            />
           </div>
         </div>
         <div className="email_input_wrapper">
@@ -57,11 +66,16 @@ const SignUpInput = () => {
               placeholder={"이메일을 입력해주세요"}
               id={"input_email"}
               onChange={(e) => setemailLocalPart(e.target.value)}
+              autoComplete="off"
+              required
             />
           </div>
           <span>@</span>
           <div className="select">
-            <select onChange={(e) => setEmailDomainPart(e.target.value)}>
+            <select
+              onChange={(e) => setEmailDomainPart(e.target.value)}
+              required
+            >
               <option value=""></option>
               <option value="naver.com">naver.com</option>
               <option value="google.com">google.com</option>
@@ -76,6 +90,8 @@ const SignUpInput = () => {
               type={"tel"}
               placeholder={"전화번호를 입력해주세요"}
               id={"input_tel"}
+              autoComplete="off"
+              required
             />
           </div>
           <div className="tel_btn">
